@@ -45,4 +45,18 @@ class CalculationsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_equal "error\n", response.body
   end
+
+  test 'calculations are saved to database only once' do
+    assert_difference 'Calculation.count', 1 do
+      left_input, right_input = (0..99).to_a.sample(2)
+      operation = Calculation.operations.keys.sample
+      2.times do
+        post '/calculations', xhr: true, params: {
+          left_input: left_input,
+          right_input: right_input,
+          operation: operation
+        }
+      end
+    end
+  end
 end
