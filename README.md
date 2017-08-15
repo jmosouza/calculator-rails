@@ -2,25 +2,23 @@
 
 [![CircleCI](https://circleci.com/gh/jmosouza/calculator-rails.svg?style=svg&circle-token=c4b689a45e7e13f06f394380e9b1e2a2234ce68d)](https://circleci.com/gh/jmosouza/calculator-rails)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# CODING TEST NOTE
 
-Things you may want to cover:
+The coding test suggests using Mongo. I decided to go with SQL because I'm more used to it and would face less "surprises" during the test. That said, I'm certainly open to No-SQL.
 
-* Ruby version
+I generally prefer to use the same database (usually PostgreSQL) in all environments, but I chose SQLite in development to make the evaluator's job easier when reviewing my project, since it requires zero setup.
 
-* System dependencies
+* Development and test: SQLite
+* Production: PostgreSQL
 
-* Configuration
+# Setup
 
-* Database creation
+Install dependencies and create the database with `bin/setup`.
 
-* Database initialization
+# Run
 
-* How to run the test suite
+Just `rails server`.
 
-* Services (job queues, cache servers, search engines, etc.)
+# Test
 
-* Deployment instructions
-
-* ...
+Tests cover the Calculation model and logic and the Calculation endpoint. Run `rails test`.
