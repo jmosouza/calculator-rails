@@ -60,3 +60,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'envied'
 # Annotate Rails classes with schema and routes info
 gem 'annotate'
+# Integrate React.js with Rails views and controllers, the asset pipeline, or webpacker.
+gem 'react-rails'
