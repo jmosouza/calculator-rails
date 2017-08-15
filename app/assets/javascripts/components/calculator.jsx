@@ -14,6 +14,10 @@ class Calculator extends React.Component {
   onSubmit (event) {
     event.preventDefault()
 
+    this.setState({
+      isWaitingResult: true
+    })
+
     const fetchOptions = {
       method: 'post',
       headers: {
@@ -31,6 +35,7 @@ class Calculator extends React.Component {
       .then(data => data.text())
       .then(text => {
         this.setState({
+          isWaitingResult: false,
           detailed_result: text,
           simple_result: text === 'error\n'
             ? '💥'
@@ -51,6 +56,7 @@ class Calculator extends React.Component {
       right_input,
       simple_result,
       detailed_result,
+      isWaitingResult
     } = this.state
 
     const isInputValid =
@@ -82,15 +88,15 @@ class Calculator extends React.Component {
       <div>
         <div>
           <div>
-            {this.renderInput('left_input', left_input)}
+            {this.renderInput('left_input', left_input, isWaitingResult)}
           </div>
           <div>
             {operations.map(operation =>
-              this.renderButton(operation, isInputValid)
+              this.renderButton(operation, isInputValid, isWaitingResult)
             )}
           </div>
           <div>
-            {this.renderInput('right_input', right_input)}
+            {this.renderInput('right_input', right_input, isWaitingResult)}
           </div>
         </div>
         <div>
@@ -110,24 +116,25 @@ class Calculator extends React.Component {
     )
   }
 
-  renderInput (name, value) {
+  renderInput (name, value, isWaitingResult) {
     return (
       <input
         type='number'
         name={name}
         value={value}
+        disabled={isWaitingResult}
         onChange={this.onChangeInput}
       />
     )
   }
 
-  renderButton (operation, isInputValid) {
+  renderButton (operation, isInputValid, isWaitingResult) {
     return (
       <button
         key={operation.name}
         name='operation'
         value={operation.name}
-        disabled={!isInputValid}
+        disabled={isWaitingResult || !isInputValid}
         onClick={this.onSubmit}
       >
         {operation.symbol}
