@@ -89,6 +89,15 @@ class Calculator extends React.Component {
         <div>
           {this.renderInput('left_input', left_input, isWaitingResult)}
           {this.renderInput('right_input', right_input, isWaitingResult)}
+
+          <div style={{
+            color: 'red',
+            textAlign: 'center',
+            fontFamily: 'Arial, sans-serif'
+          }}>
+            {isInputValid ? '' : 'try values from 0 to 99'}
+          </div>
+
           <div>
             {operations.map(operation =>
               this.renderButton(operation, isInputValid, isWaitingResult)
