@@ -1,4 +1,4 @@
-<% if @calculation.errors.any? || @calculation.result_error %>
+<% if calculation_has_errors?(@calculation) %>
 error
 <% else %>
 Operation: <%= formatted_operation(@calculation) %>

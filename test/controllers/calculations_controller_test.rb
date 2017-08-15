@@ -23,4 +23,26 @@ class CalculationsControllerTest < ActionDispatch::IntegrationTest
       assert_equal "error\n", response.body
     end
   end
+
+  test 'invalid input' do
+    [-1, 100].each do |left_input|
+      post '/calculations', xhr: true, params: {
+        left_input: left_input,
+        right_input: 1,
+        operation: 'division_op'
+      }
+      assert_response :success
+      assert_equal "error\n", response.body
+    end
+  end
+
+  test 'invalid operation' do
+    post '/calculations', xhr: true, params: {
+      left_input: 1,
+      right_input: 1,
+      operation: '*'
+    }
+    assert_response :success
+    assert_equal "error\n", response.body
+  end
 end

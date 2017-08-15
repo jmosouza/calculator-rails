@@ -3,6 +3,8 @@ class CalculationsController < ApplicationController
     @calculation = Calculation.find_or_initialize_by(calculation_params)
     @calculation.request_count += 1
     @calculation.save
+  rescue
+    # Do nothing. Errors also need to be rendered by the view.
   end
 
   private

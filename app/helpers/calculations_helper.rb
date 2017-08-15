@@ -15,4 +15,10 @@ module CalculationsHelper
     when :division_op then '÷'
     end
   end
+
+  def calculation_has_errors?(calculation)
+    calculation.blank? ||
+    calculation.errors.any? ||
+    calculation.result_error
+  end
 end
