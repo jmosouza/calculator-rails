@@ -1,0 +1,6 @@
+# Ensures presence and type of your app's ENV-variables
+# Documentation: https://github.com/eval/envied
+
+group :production do
+  variable :DATABASE_URL
+end
