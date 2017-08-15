@@ -85,33 +85,39 @@ class Calculator extends React.Component {
     ]
 
     return (
-      <div>
+      <div style={{ maxWidth: 600 }}>
         <div>
-          <div>
-            {this.renderInput('left_input', left_input, isWaitingResult)}
-          </div>
+          {this.renderInput('left_input', left_input, isWaitingResult)}
+          {this.renderInput('right_input', right_input, isWaitingResult)}
           <div>
             {operations.map(operation =>
               this.renderButton(operation, isInputValid, isWaitingResult)
             )}
           </div>
-          <div>
-            {this.renderInput('right_input', right_input, isWaitingResult)}
-          </div>
         </div>
-        <div>
-          =
-        </div>
-        <div>
+
+        <div style={{
+          fontSize: '7em',
+          fontWeight: 'bold',
+          fontFamily: 'Arial, sans-serif',
+          textAlign: 'center',
+          color: '#00A2FF'
+        }}>
           {simple_result}
         </div>
-        <div>
-          <textarea
-            rows='4'
-            disabled='true'
-            value={detailed_result}
-          />
-        </div>
+
+        <textarea
+          rows='4'
+          disabled='true'
+          value={detailed_result}
+          style={{
+            border: 0,
+            width: '100%',
+            resize: 'none',
+            textAlign: 'center',
+            overflow: 'hidden'
+          }}
+        />
       </div>
     )
   }
@@ -124,6 +130,20 @@ class Calculator extends React.Component {
         value={value}
         disabled={isWaitingResult}
         onChange={this.onChangeInput}
+        style={{
+          border: 0,
+          margin: 10,
+          padding: 0,
+          borderRadius: 10,
+          display: 'inline-block',
+          width: 'calc(50% - 20px)',
+          height: '20vh',
+          minHeight: 100,
+          fontSize: '5em',
+          fontFamily: 'Arial, sans-serif',
+          textAlign: 'center',
+          backgroundColor: '#F3F3F3'
+        }}
       />
     )
   }
@@ -136,6 +156,20 @@ class Calculator extends React.Component {
         value={operation.name}
         disabled={isWaitingResult || !isInputValid}
         onClick={this.onSubmit}
+        style={{
+          border: 0,
+          margin: 10,
+          padding: 0,
+          borderRadius: 10,
+          display: 'inline-block',
+          width: 'calc(25% - 20px)',
+          height: '10vh',
+          minHeight: 50,
+          fontSize: '2em',
+          textAlign: 'center',
+          color: 'white',
+          backgroundColor: '#00A2FF'
+        }}
       >
         {operation.symbol}
       </button>
