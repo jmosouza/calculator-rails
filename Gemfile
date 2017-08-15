@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Ensures presence and type of your app's ENV-variables
 gem 'envied'
+# Annotate Rails classes with schema and routes info
+gem 'annotate'

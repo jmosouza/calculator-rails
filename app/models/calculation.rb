@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: calculations
+#
+#  id            :integer          not null, primary key
+#  left_input    :integer          not null
+#  right_input   :integer          not null
+#  operation     :integer          not null
+#  result        :float
+#  request_count :integer          default("0"), not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  result_error  :string
+#
+
 class Calculation < ApplicationRecord
   before_create :calculate
 
