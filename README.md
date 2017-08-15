@@ -22,3 +22,18 @@ Just `rails server`.
 # Test
 
 Tests cover the Calculation model and logic and the Calculation endpoint. Run `rails test`.
+
+# Deploy
+
+* Commit to master (or open a pull request)
+* Wait for CI to pass
+* Done (or accept the pull request)
+
+CircleCI: https://circleci.com/gh/jmosouza/calculator-rails
+
+Heroku: https://dashboard.heroku.com/apps/jmosouza-calculator-rails/deploy
+
+# Additional info
+
+* Models are auto-annotated when migrating the database. https://github.com/ctran/annotate_models
+* Some environment variables are mandatory. See `Envfile`. https://github.com/eval/envied
