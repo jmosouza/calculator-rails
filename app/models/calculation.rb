@@ -10,14 +10,13 @@ class Calculation < ApplicationRecord
 
   validates(
     :result,
-    numericality: { only_integer: true },
+    numericality: true,
     if: proc { |c| c.result.present? }
   )
 
   validates(
     :left_input,
     :right_input,
-    :operation,
     :request_count,
     numericality: {
       only_integer: true,

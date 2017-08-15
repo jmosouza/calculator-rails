@@ -1,0 +1,8 @@
+<% if @calculation.errors.any? || @calculation.result_error %>
+error
+<% else %>
+Operation: <%= formatted_operation(@calculation) %>
+Result: <%= @calculation.result %>
+ID: <%= @calculation.id %>
+Count: <%= @calculation.request_count %>
+<% end %>
