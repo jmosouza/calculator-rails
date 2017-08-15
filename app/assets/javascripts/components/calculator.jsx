@@ -101,7 +101,7 @@ class Calculator extends React.Component {
           fontWeight: 'bold',
           fontFamily: 'Arial, sans-serif',
           textAlign: 'center',
-          color: '#00A2FF'
+          color: isWaitingResult ? '#7FD0FF' : '#00A2FF'
         }}>
           {simple_result}
         </div>
@@ -149,12 +149,13 @@ class Calculator extends React.Component {
   }
 
   renderButton (operation, isInputValid, isWaitingResult) {
+    const isDisabled = isWaitingResult || !isInputValid
     return (
       <button
         key={operation.name}
         name='operation'
         value={operation.name}
-        disabled={isWaitingResult || !isInputValid}
+        disabled={isDisabled}
         onClick={this.onSubmit}
         style={{
           border: 0,
@@ -168,7 +169,7 @@ class Calculator extends React.Component {
           fontSize: '2em',
           textAlign: 'center',
           color: 'white',
-          backgroundColor: '#00A2FF'
+          backgroundColor: isDisabled ? '#7FD0FF' : '#00A2FF'
         }}
       >
         {operation.symbol}
