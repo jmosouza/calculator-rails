@@ -1,4 +1,6 @@
-# README
+# Calculator
+
+[![CircleCI](https://circleci.com/gh/jmosouza/calculator-rails.svg?style=svg)](https://circleci.com/gh/jmosouza/calculator-rails)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
