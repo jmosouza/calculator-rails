@@ -1,6 +1,6 @@
 # Calculator
 
-[![CircleCI](https://circleci.com/gh/jmosouza/calculator-rails.svg?style=svg)](https://circleci.com/gh/jmosouza/calculator-rails)
+[![CircleCI](https://circleci.com/gh/jmosouza/calculator-rails.svg?style=svg&circle-token=c4b689a45e7e13f06f394380e9b1e2a2234ce68d)](https://circleci.com/gh/jmosouza/calculator-rails)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
