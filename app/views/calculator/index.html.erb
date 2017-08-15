@@ -1,1 +1,11 @@
-<%= react_component('Calculator') %>
+<%#
+I think the calculator must not set a fixed width.
+The calculator is flexible enough to fit in both thin and wide spaces.
+The div/element "using" the calculator should set the desired width.
+
+In an actual app, I would extract the sizing styles below to CSS/SASS,
+but it's easier to visualize the example inline.
+%>
+<div style="max-width: 600px; margin: 0 auto;">
+  <%= react_component('Calculator') %>
+</div>

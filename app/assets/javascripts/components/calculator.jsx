@@ -85,7 +85,7 @@ class Calculator extends React.Component {
     ]
 
     return (
-      <div style={{ maxWidth: 600 }}>
+      <div>
         <div>
           {this.renderInput('left_input', left_input, isWaitingResult)}
           {this.renderInput('right_input', right_input, isWaitingResult)}
